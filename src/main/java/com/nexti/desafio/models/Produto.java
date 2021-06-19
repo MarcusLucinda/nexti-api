@@ -51,6 +51,4 @@ public class Produto {
 	public void setQtd(Integer qtd) {
 		this.qtd = qtd;
 	}
-	
-	
 }

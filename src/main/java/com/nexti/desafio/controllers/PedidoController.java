@@ -40,4 +40,14 @@ public class PedidoController {
 	public void excluir(@RequestBody Pedido pedido) {
 		pedServ.delete(pedido);
 	}
+	
+	@PutMapping("/add-produtos")
+	public Pedido addProdutos(@RequestBody Pedido pedido) {
+		return pedServ.addProdutos(pedido);
+	}
+	
+	@DeleteMapping("remover-produtos")
+	public Pedido removerProdutos(@RequestBody Pedido pedido) {
+		return pedServ.delProdutos(pedido);
+	}
 }

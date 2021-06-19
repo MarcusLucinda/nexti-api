@@ -17,4 +17,17 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long>{
 	@Modifying
 	@Query("UPDATE Pedido p SET p.cliente = :cliente, p.total = :total, p.dataCompra = :data WHERE p.id = :id")
 	void update(@Param("id") Long id, @Param("cliente") Cliente cliente, @Param("total") Double total, @Param("data") LocalDate data);
+	
+	@Modifying
+	@Query(value = "INSERT INTO pedido_produtos (pedido_id, produtos_id) VALUES (:pedidoId, :produtoId)", nativeQuery = true)
+	void addProducts(@Param("pedidoId") Long pedidoId, @Param("produtoId") Long produtoId);
+	
+	@Modifying
+	@Query(value = "DELETE FROM pedido_produtos WHERE pedido_id = :pedidoId AND produtos_id = :produtoId", nativeQuery = true)
+	void delProducts(@Param("pedidoId") Long pedidoId, @Param("produtoId") Long produtoId);
+	
+	@Modifying
+	@Query(value = "DELETE FROM pedido_produtos WHERE pedido_id = :pedidoId", nativeQuery = true)
+	void deleteAllPedidos(@Param("pedidoId") Long pedidoId);
+	
 }

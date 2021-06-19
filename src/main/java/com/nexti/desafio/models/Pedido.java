@@ -8,8 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -26,7 +26,7 @@ public class Pedido {
 	@Column(nullable = false)
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private LocalDate dataCompra;
-	@OneToMany
+	@ManyToMany
 	private List<Produto> produtos;
 	
 	public Long getId() {
