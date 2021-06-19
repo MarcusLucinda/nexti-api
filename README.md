@@ -22,6 +22,8 @@ spring.jpa.hibernate.ddl-auto=update
 
 O banco de dados já deve estar criado antes da execução da aplicação.
 
+No projeto foi utilizado o "Repository Pattern", onde todas as queries ao banco estão nas classes que utilizam a JpaRepository, presentes no pacote "repositories". As regras de negócio estão implementadas nas classes "Service". 
+
 ## Execução
 
 O arquivo desafio-0.0.1-SNAPSHOT.jar deve ser executado, o container irá iniciar em localhost:8080/. Pode-se iniciar com o seguinte comando no terminal:
